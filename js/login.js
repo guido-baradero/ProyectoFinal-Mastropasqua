@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Cargar datos iniciales en localStorage si no están presentes
+    // Cargar datos iniciales en localStorage si no estan presentes
     const cargarDatosIniciales = async () => {
         try {
             const archivos = [
@@ -31,15 +31,13 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
     let usuarioEncontrado = usuarios.find(u => u.usuario === usuarioIngresado && u.contrasena === contrasenaIngresada);
 
     if (usuarioEncontrado) {
-        // Mostrar mensaje de éxito primero
         Swal.fire({
             icon: 'success',
             title: 'Inicio de sesión exitoso',
-            timer: 2000,
-            showConfirmButton: false, // Evita que el usuario tenga que hacer clic para cerrar el mensaje
+            timer: 1200,
+            showConfirmButton: false,
             willClose: () => {
-                // Esta función se ejecuta justo antes de que se cierre el SweetAlert
-                // Redirección según el rol del usuario después de que el mensaje desaparezca
+                // Redireccion segun el rol del usuario
                 const alcanceUsuario = usuarioEncontrado.alcance.toLowerCase();
                 if (alcanceUsuario === 'despachante') {
                     window.location.href = '../pages/despacho.html';
@@ -49,14 +47,6 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
                     console.error('Rol de usuario no reconocido:', alcanceUsuario);
                 }
             }
-        });
-
-        // Actualizar el estado del usuario logueado a "conectado"
-        usuarios = usuarios.map(u => {
-            if (u.idUsuario === usuarioEncontrado.idUsuario) {
-                return { ...u, conectado: true };
-            }
-            return u;
         });
 
         // Guardar los datos actualizados en localStorage

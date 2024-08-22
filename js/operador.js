@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Función para cargar datos iniciales
+    // Funcion para cargar datos iniciales
     const cargarDatosIniciales = async () => {
         try {
             const archivos = [
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(`Operador logueado: ${operador.nombre} ${operador.apellido}`);
     document.getElementById('nombreOperador').textContent = `${operador.nombre} ${operador.apellido}`;
 
-    // Filtrar las órdenes para el operador logueado
+    // Filtrar las ordenes para el operador logueado
     const ordenesDelOperador = ordenes.filter(o => o.operador === `${operador.nombre} ${operador.apellido}`);
     console.log('Órdenes del operador:', ordenesDelOperador);
 });

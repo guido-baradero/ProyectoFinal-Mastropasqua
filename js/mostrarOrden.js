@@ -20,16 +20,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const mostrarOrdenesFiltradas = (estado) => {
         const ordenes = obtenerOrdenes();
         const tareas = obtenerTareas();
-        ordenesTbody.innerHTML = ''; // Limpiar la tabla
+        ordenesTbody.innerHTML = '';
 
-        console.log(`Filtrando órdenes con estado: ${estado}`); // Seguimiento
+        console.log(`Ordenes con estado: ${estado}`);
 
         const ordenesFiltradas = ordenes.filter(orden => orden.estado === estado);
 
         ordenesFiltradas.forEach(orden => {
             const tarea = tareas.find(t => t.descripcion === orden.tarea);
-            console.log(`Orden encontrada: ${JSON.stringify(orden)}`); // Seguimiento
-            console.log(`Tarea asociada: ${JSON.stringify(tarea)}`); // Seguimiento
+            console.log(`Orden encontrada: ${JSON.stringify(orden)}`);
+            console.log(`Tarea asociada: ${JSON.stringify(tarea)}`);
 
             const fila = document.createElement('tr');
             fila.innerHTML = `
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         if (ordenesFiltradas.length === 0) {
-            ordenesTbody.innerHTML = '<tr><td colspan="5" class="text-center">No hay órdenes con este estado.</td></tr>';
+            ordenesTbody.innerHTML = '<tr><td colspan="5" class="text-center">No hay ordenes con este estado.</td></tr>';
         }
     };
 
@@ -66,26 +66,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (ordenIndex !== -1) {
             Swal.fire({
-                title: "¿Estás seguro?",
-                text: "¡No podrás revertir esto!",
+                title: "¿Estas seguro?",
+                text: "Estas por cancelar a orden",
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#3085d6",
                 cancelButtonColor: "#d33",
-                confirmButtonText: "¡Sí, eliminarla!"
+                confirmButtonText: "Si, eliminar"
             }).then((result) => {
                 if (result.isConfirmed) {
                     // Cambiar el estado a 'cancelada' y eliminar el operador
                     ordenes[ordenIndex].estado = 'cancelada';
                     ordenes[ordenIndex].operador = ''; // Eliminar el operador asignado
 
-                    // Guardar las órdenes actualizadas
+                    // Guardar las ordenes actualizadas
                     guardarOrdenes(ordenes);
 
                     // Mostrar mensaje de confirmación
                     Swal.fire({
-                        title: "¡Eliminada!",
-                        text: "La orden ha sido cancelada.",
+                        title: "Eliminada",
+                        text: "La orden paso a cancelada",
                         icon: "success"
                     });
 

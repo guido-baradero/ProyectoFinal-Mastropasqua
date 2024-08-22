@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         materiales.forEach(material => {
             const row = document.createElement('tr');
 
-            // Determinar el color del botón según la cantidad real
+            // Cambiar el color segun la cantidad
             const buttonColor = material.cantidad <= material.cantidadMin ? 'btn-danger' : 'btn-secondary';
 
             row.innerHTML = `
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
             stockTbody.appendChild(row);
         });
 
-        // Mostrar la sección de stock
+        // Mostrar stock
         stockContainer.classList.remove('d-none');
 
         // Agregar el evento de clic a todos los botones de reponer stock
@@ -58,12 +58,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Manejar el clic en el botón de stock
+    // Click boton stock
     btnStock.addEventListener('click', () => {
         mostrarStock();
     });
-
-    // Opcional: Ocultar el stock cuando se haga clic fuera de la tabla o en otro botón
+    // Ocultar stock
     document.addEventListener('click', (event) => {
         if (!event.target.closest('#stock-container') && !event.target.closest('#btnStock')) {
             stockContainer.classList.add('d-none');

@@ -1,0 +1,18 @@
+La idea es la de un sistema para el despacho de tareas.
+Hay dos perfiles de usuarios cargados: 
+1 - despachante
+    * laura.diaz
+    * jose.sanchez
+    contrasena:  password123 (para todos los usuarios)
+    
+2 - operador
+    * juan.perez
+    * maria.gomez
+    * etc...
+
+El despachante es el encargado de gestionar y asignar la orden de trabajo.
+El operador va a ver en pantalla las tareas que le han sido asignadas. 
+Tiene dos opciones de cumplimiento: cumplir o reagendar.
+Si el operador cumple la orden le va a pedir ingresar el consumo de material. Se le va a mostrar el listado y la cantidad disponible en stock. La orden pasa a estar cumplida y el despachante la puede ver en un listado a traves del boton de ordenes cumplidas.
+Si el operador no puede cumplir la tarea, puede reagendar la misma. Y se mostrara en el listado de ordenes reagendadas en la pantalla del despachante, el despachante podra asignar nuevamente la tarea o darla de baja cancelandola definitivamente.
+el stock ira restando los consumos y al llegar a un valor de stock minimo necesario para operar prendera en rojo el boton de reponer para que el despachante reponga ese material en stock.

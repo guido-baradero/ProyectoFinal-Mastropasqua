@@ -6,16 +6,16 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    // Cargar las órdenes
+    // Cargar las ordenes
     let ordenes = JSON.parse(localStorage.getItem('ordenes')) || [];
 
-    // Filtrar las órdenes por el operador logueado
+    // Filtrar las ordenes por el operador logueado
     const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
     const operador = usuarios.find(usuario => usuario.idUsuario === usuarioLogueado);
     const operadorNombre = `${operador?.nombre} ${operador?.apellido}`;
     const ordenesOperador = ordenes.filter(orden => orden.operador === operadorNombre && orden.estado === 'asignada');
 
-    // Mostrar las órdenes en la pantalla
+    // Mostrar las ordenes en la pantalla
     const contenedorOrdenes = document.getElementById('ordenesContenedor');
     if (!contenedorOrdenes) {
         console.error('Contenedor de órdenes no encontrado.');
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Variable para almacenar el ID de la orden a actualizar
     let ordenIdActualizar = null;
 
-    // Función para mostrar el modal y almacenar el ID de la orden a actualizar
+    // Funcion para mostrar el modal y almacenar el ID de la orden a actualizar
     function mostrarModal(idOrden) {
         ordenIdActualizar = idOrden;
         modal.show();
@@ -62,12 +62,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Manejar clic en el botón "Close" (btn-secondary)
+    // Manejar clic en Cerrar
     btnClose.addEventListener('click', () => {
         modal.hide();
     });
 
-    // Manejar clic en el botón "Save changes" (btn-primary)
+    // Manejar clic en Guardar cambios
     btnSaveChanges.addEventListener('click', () => {
         if (ordenIdActualizar !== null) {
             actualizarEstadoOrden(ordenIdActualizar, 'cumplida');
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function actualizarEstadoOrden(idOrden, nuevoEstado) {
-        // Actualizar el estado de la orden en el array de órdenes
+        // Actualizar el estado de la orden en el array de ordenes
         ordenes = ordenes.map(orden => {
             if (orden.idOrden === idOrden) {
                 return { ...orden, estado: nuevoEstado };
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return orden;
         });
 
-        // Guardar las órdenes actualizadas en localStorage
+        // Guardar las ordenes actualizadas en localStorage
         localStorage.setItem('ordenes', JSON.stringify(ordenes));
 
         // Eliminar la tarjeta correspondiente del DOM
@@ -96,13 +96,13 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(`Orden ${idOrden} actualizada a ${nuevoEstado} y removida del DOM.`);
     }
 
-    // Inicializar las tarjetas de órdenes
+    // Inicializar las tarjetas de ordenes
     ordenesOperador.forEach(orden => {
         const card = document.createElement('div');
         card.className = 'card mb-3';
         card.dataset.ordenId = orden.idOrden;
 
-        // Definir el color del header según el estado de la orden
+        // Definir el color del header segun el estado de la orden
         let headerColor = '';
         switch (orden.estado) {
             case 'cumplida':

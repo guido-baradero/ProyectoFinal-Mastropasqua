@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     cargarDatos();
 
-    // Función para generar un ID incremental para las órdenes
+    // Función para generar un ID incremental para las ordenes
     const generarIdOrden = () => {
         let ordenes = JSON.parse(localStorage.getItem('ordenes')) || [];
         return ordenes.length ? (ordenes.length + 1).toString() : '1';
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('operador').addEventListener('change', actualizarVistaPrevia);
     document.getElementById('tarea').addEventListener('change', actualizarVistaPrevia);
 
-    // Manejar la creación de una nueva orden
+    // Manejar la creacion de una nueva orden
     document.getElementById('btnAsignarNuevaOrden').addEventListener('click', () => {
         const operadorId = document.getElementById('operador').value;
         const tareaId = document.getElementById('tarea').value;
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ordenes.push(nuevaOrden);
         localStorage.setItem('ordenes', JSON.stringify(ordenes));
 
-        // Mostrar mensaje de confirmación
+        // Mostrar mensaje de confirmacion
         Swal.fire({
             icon: 'success',
             title: 'Orden Asignada',

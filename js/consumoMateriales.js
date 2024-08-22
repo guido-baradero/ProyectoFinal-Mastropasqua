@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnGuardarCambios = document.getElementById('btnGuardarCambios');
     let materiales = JSON.parse(localStorage.getItem('materiales')) || [];
 
-    // Función para cargar los materiales en el select
+    // Funcion para cargar los materiales en el select
     function cargarMateriales() {
         materialSelect.innerHTML = '<option selected disabled>Selecciona un material</option>';
         materiales.forEach(material => {
@@ -19,10 +19,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Llamar a la función para cargar los materiales cuando el DOM se cargue
+    // Llamar a la funcion para cargar los materiales cuando el DOM se cargue
     cargarMateriales();
 
-    // Función para actualizar los materiales en localStorage
+    // Funcion para actualizar los materiales en localStorage
     function actualizarMateriales() {
         const selectedMaterialId = materialSelect.value;
         const cantidad = parseInt(cantidadInput.value, 10);
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: 'Selecciona un material y una cantidad válida.',
+                text: 'Selecciona un material y una cantidad',
             });
             return;
         }
