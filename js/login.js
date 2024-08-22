@@ -42,9 +42,9 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
                 // Redirección según el rol del usuario después de que el mensaje desaparezca
                 const alcanceUsuario = usuarioEncontrado.alcance.toLowerCase();
                 if (alcanceUsuario === 'despachante') {
-                    window.location.href = '../pages/despacho.html';
+                    window.location.href = '/pages/despacho.html';
                 } else if (alcanceUsuario === 'operador') {
-                    window.location.href = '../pages/operador.html';
+                    window.location.href = '/pages/operador.html';
                 } else {
                     console.error('Rol de usuario no reconocido:', alcanceUsuario);
                 }
