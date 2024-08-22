@@ -97,16 +97,32 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const reasignarOrden = (idOrden) => {
-        const ordenes = obtenerOrdenes();
-        const ordenIndex = ordenes.findIndex(orden => orden.idOrden === idOrden);
-
-        if (ordenIndex !== -1) {
-            ordenes[ordenIndex].estado = 'asignada';
-            guardarOrdenes(ordenes);
-            mostrarOrdenesFiltradas('reagendada');
-        }
+        Swal.fire({
+            title: '¿Estás seguro?',
+            text: "¿Deseas reasignar esta orden?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sí, reasignar',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                const ordenes = obtenerOrdenes();
+                const ordenIndex = ordenes.findIndex(orden => orden.idOrden === idOrden);
+                if (ordenIndex !== -1) {
+                    ordenes[ordenIndex].estado = 'asignada';
+                    guardarOrdenes(ordenes);
+                    mostrarOrdenesFiltradas('reagendada');
+                    Swal.fire(
+                        'Reasignada!',
+                        'La orden ha sido reasignada.',
+                        'success'
+                    );
+                }
+            }
+        });
     };
-
     btnReagendadas.addEventListener('click', () => mostrarOrdenesFiltradas('reagendada'));
     btnAsignadas.addEventListener('click', () => mostrarOrdenesFiltradas('asignada'));
     btnCumplidas.addEventListener('click', () => mostrarOrdenesFiltradas('cumplida'));

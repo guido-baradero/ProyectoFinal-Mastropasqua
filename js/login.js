@@ -22,47 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     cargarDatosIniciales();
 });
-/*
-document.getElementById('loginForm').addEventListener('submit', function (event) {
-    event.preventDefault();
-
-    const usuarioIngresado = document.getElementById('usuarioLogin').value;
-    const contrasenaIngresada = document.getElementById('contrasenaLogin').value;
-
-    let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
-    let usuarioEncontrado = usuarios.find(u => u.usuario === usuarioIngresado && u.contrasena === contrasenaIngresada);
-
-    if (usuarioEncontrado) {
-        // Actualizar el estado del usuario logueado a "conectado"
-        usuarios = usuarios.map(u => {
-            if (u.idUsuario === usuarioEncontrado.idUsuario) {
-                return { ...u, conectado: true };
-            }
-            return u;
-        });
-
-        // Guardar los datos actualizados en localStorage
-        localStorage.setItem('usuarios', JSON.stringify(usuarios));
-
-        // Guardar el idUsuario del usuario logueado
-        localStorage.setItem('usuarioLogueado', usuarioEncontrado.idUsuario);
-
-        // Redirección según el rol del usuario
-        const alcanceUsuario = usuarioEncontrado.alcance.toLowerCase();
-
-        if (alcanceUsuario === 'despachante') {
-            window.location.href = '../pages/despacho.html';
-        } else if (alcanceUsuario === 'operador') {
-            window.location.href = '../pages/operador.html';
-        } else {
-            console.error('Rol de usuario no reconocido:', alcanceUsuario);
-        }
-
-    } else {
-        alert('Usuario o contraseña incorrectos');
-    }
-});
-*/
 
 document.getElementById('loginForm').addEventListener('submit', function (event) {
     event.preventDefault();

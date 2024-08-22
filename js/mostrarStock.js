@@ -1,47 +1,3 @@
-/*document.addEventListener('DOMContentLoaded', () => {
-    // Obtener los elementos del DOM
-    const btnStock = document.getElementById('btnStock');
-    const stockContainer = document.getElementById('stock-container');
-    const stockTbody = document.getElementById('stock-tbody');
-
-    // Función para cargar y mostrar el stock de materiales
-    function mostrarStock() {
-        // Obtener la lista de materiales del localStorage
-        const materiales = JSON.parse(localStorage.getItem('materiales')) || [];
-
-        // Limpiar el contenido actual de la tabla
-        stockTbody.innerHTML = '';
-
-        // Agregar los materiales a la tabla
-        materiales.forEach(material => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${material.idProducto}</td>
-                <td>${material.material}</td>
-                <td>${material.cantidadMin}</td>
-                <td>${material.cantidad}</td>
-            `;
-            stockTbody.appendChild(row);
-        });
-
-        // Mostrar la sección de stock
-        stockContainer.classList.remove('d-none');
-    }
-
-    // Manejar el clic en el botón de stock
-    btnStock.addEventListener('click', () => {
-        mostrarStock();
-    });
-
-    // Opcional: Ocultar el stock cuando se haga clic fuera de la tabla o en otro botón
-    document.addEventListener('click', (event) => {
-        if (!event.target.closest('#stock-container') && !event.target.closest('#btnStock')) {
-            stockContainer.classList.add('d-none');
-        }
-    });
-});
-*/
-
 document.addEventListener('DOMContentLoaded', () => {
     // Obtener los elementos del DOM
     const btnStock = document.getElementById('btnStock');
@@ -114,7 +70,3 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
-
-
-
-

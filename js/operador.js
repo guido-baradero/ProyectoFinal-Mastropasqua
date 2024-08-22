@@ -47,43 +47,4 @@ document.addEventListener('DOMContentLoaded', () => {
     // Filtrar las órdenes para el operador logueado
     const ordenesDelOperador = ordenes.filter(o => o.operador === `${operador.nombre} ${operador.apellido}`);
     console.log('Órdenes del operador:', ordenesDelOperador);
-    /*
-        // Mostrar las órdenes en el HTML
-        const contenedorOrdenes = document.getElementById('ordenesContenedor');
-        if (!contenedorOrdenes) {
-            console.error('Elemento de contenedor de órdenes no encontrado.');
-            return;
-        }
-    
-        if (ordenesDelOperador.length === 0) {
-            console.log('No hay órdenes para mostrar.');
-            contenedorOrdenes.innerHTML = '<p>No hay órdenes para mostrar.</p>';
-        } else {
-            contenedorOrdenes.innerHTML = '';
-            ordenesDelOperador.forEach(orden => {
-                const card = document.createElement('div');
-                card.className = 'card mb-3';
-                card.innerHTML = `
-                    <div class="card-header">
-                        Número de orden: ${orden.idOrden}
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">${orden.tarea || 'Sin tarea'}</h5>
-                        <p class="card-text">${orden.descripcion || 'Sin descripción'}</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Asignada por: ${orden.despachante || 'Desconocido'}</li>
-                        <li class="list-group-item">${orden.comentario || 'Sin comentario'}</li>
-                    </ul>
-                    <div class="mb-3">
-                        <textarea class="form-control" rows="3" placeholder="Comentario..."></textarea>
-                    </div>
-                    <div class="card-body">
-                        <button class="btn btn-secondary btnCumplirOrden">Cumplir</button>
-                        <button class="btn btn-warning btnReagendar">Reagendar</button>
-                    </div>
-                `;
-                contenedorOrdenes.appendChild(card);
-            });
-        }*/
 });
