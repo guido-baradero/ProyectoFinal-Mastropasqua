@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             for (const archivo of archivos) {
                 if (!localStorage.getItem(archivo.clave)) {
-                    const respuesta = await fetch(`../js/${archivo.nombre}`);
+                    const respuesta = await fetch(`./js/${archivo.nombre}`);
                     const datos = await respuesta.json();
                     localStorage.setItem(archivo.clave, JSON.stringify(datos));
                 }
