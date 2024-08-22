@@ -3,14 +3,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const cargarDatosIniciales = async () => {
         try {
             const archivos = [
-                { nombre: 'db_usuarios.json', clave: 'usuarios' },
-                { nombre: 'db_materiales.json', clave: 'materiales' },
-                { nombre: 'db_tareas.json', clave: 'tareas' }
+                { nombre: './db_usuarios.json', clave: 'usuarios' },
+                { nombre: './db_materiales.json', clave: 'materiales' },
+                { nombre: './db_tareas.json', clave: 'tareas' }
             ];
 
             for (const archivo of archivos) {
                 if (!localStorage.getItem(archivo.clave)) {
-                    const respuesta = await fetch(`/js/${archivo.nombre}`);
+                    const respuesta = await fetch(`../js/${archivo.nombre}`);
                     const datos = await respuesta.json();
                     localStorage.setItem(archivo.clave, JSON.stringify(datos));
                 }
@@ -42,9 +42,9 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
                 // Redirección según el rol del usuario después de que el mensaje desaparezca
                 const alcanceUsuario = usuarioEncontrado.alcance.toLowerCase();
                 if (alcanceUsuario === 'despachante') {
-                    window.location.href = '/pages/despacho.html';
+                    window.location.href = '../pages/despacho.html';
                 } else if (alcanceUsuario === 'operador') {
-                    window.location.href = '/pages/operador.html';
+                    window.location.href = '../pages/operador.html';
                 } else {
                     console.error('Rol de usuario no reconocido:', alcanceUsuario);
                 }
